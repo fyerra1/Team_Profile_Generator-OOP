@@ -1,0 +1,19 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest test/Employee.test.js"
+  },
+  "author": "franky_erra",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.0.0",
+    "jest": "^28.1.1"
+  }
+}
