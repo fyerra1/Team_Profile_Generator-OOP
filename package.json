@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest test/Employee.test.js"
+    "test": "jest test/Engineer.test.js"
   },
   "author": "franky_erra",
   "license": "ISC",
