@@ -10,21 +10,21 @@ const team = [];
 
 const getInfo = () => {
   return inquirer.prompt([
-    // {
-    //   type: 'input',
-    //   name: 'user',
-    //   message: 'Please provide employee name.',
-    // },
-    // {
-    //   input: 'input',
-    //   name: 'id',
-    //   message: 'Please provide employee id.',
-    // },
-    // {
-    //   type: 'input',
-    //   name: 'email',
-    //   message: 'Please provide employee email.',
-    // },
+    {
+      type: 'input',
+      name: 'user',
+      message: 'Please provide employee name.',
+    },
+    {
+      input: 'input',
+      name: 'id',
+      message: 'Please provide employee id.',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Please provide employee email.',
+    },
     {
       type: 'list',
       name: 'role',
@@ -54,6 +54,7 @@ const getInfo = () => {
   .then(answers => {
     console.log(answers);
     console.log(answers.role);
+    employee(answers);
     return inquirer.prompt([
       {
         type: 'confirm',
@@ -68,9 +69,8 @@ const getInfo = () => {
   })
 }
 
-
-
-
-
-
+function employee(answers) {
+  const employeeInfo = [answers.user, answers.id, answers.email];
+  console.log(...employeeInfo);
+}
 getInfo();
