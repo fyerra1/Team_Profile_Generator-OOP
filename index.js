@@ -8,27 +8,27 @@ const Intern = require('./lib/Intern');
 
 const team = [];
 
-const userPrompts = () => {
+const getInfo = () => {
   return inquirer.prompt([
-    {
-      type: 'input',
-      name: 'user',
-      message: 'Please provide employee name.',
-    },
-    {
-      input: 'input',
-      name: 'id',
-      message: 'Please provide employee id.',
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Please provide employee email.',
-    },
+    // {
+    //   type: 'input',
+    //   name: 'user',
+    //   message: 'Please provide employee name.',
+    // },
+    // {
+    //   input: 'input',
+    //   name: 'id',
+    //   message: 'Please provide employee id.',
+    // },
+    // {
+    //   type: 'input',
+    //   name: 'email',
+    //   message: 'Please provide employee email.',
+    // },
     {
       type: 'list',
       name: 'role',
-      message: 'Please select employee.',
+      message: "Please select employee's role.",
       choices: ['Manager', 'Engineer', 'Intern'],
     },
     {
@@ -45,11 +45,32 @@ const userPrompts = () => {
     },
     {
       type: 'input',
-      name: 'office',
+      name: 'school',
       message: "Please provide Intern's school name.",
       when: (answers) => answers.role === 'Intern'
     },
   ])
+
+  .then(answers => {
+    console.log(answers);
+    console.log(answers.role);
+    return inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'add',
+        message: 'Add another employee?'
+      }
+    ])
+  })
+
+  .then(answers => {
+    if (answers.add) return getInfo()
+  })
 }
 
-userPrompts();
+
+
+
+
+
+getInfo();
