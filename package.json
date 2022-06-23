@@ -13,7 +13,7 @@
   "author": "franky_erra",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.0.0",
+    "inquirer": "^8.2.0",
     "jest": "^28.1.1"
   }
 }
