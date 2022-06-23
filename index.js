@@ -6,8 +6,6 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const team = [];
-
 const getInfo = () => {
   return inquirer.prompt([
     {
@@ -73,4 +71,5 @@ function employee(answers) {
   const employeeInfo = [answers.user, answers.id, answers.email];
   console.log(...employeeInfo);
 }
+
 getInfo();
