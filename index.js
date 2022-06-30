@@ -50,9 +50,9 @@ const getInfo = () => {
   ])
 
   .then(answers => {
-    console.log(answers);
-    console.log(answers.role);
-    employee(answers);
+    // console.log(answers);
+    // console.log(answers.role);
+    pushInfo(answers);
     return inquirer.prompt([
       {
         type: 'confirm',
@@ -67,9 +67,25 @@ const getInfo = () => {
   })
 }
 
-function employee(answers) {
+const staff = [];
+
+function pushInfo(answers) {
   const employeeInfo = [answers.user, answers.id, answers.email];
-  console.log(...employeeInfo);
+  // console.log(...employeeInfo);
+
+  switch(answers.role) {
+    case 'Manager':
+      staff.push(new Manager(...employeeInfo, answers.office));
+      break;
+    case 'Engineer':
+      staff.push(new Engineer(...employeeInfo, answers.github));
+      break;
+    case 'Intern':
+      staff.push(new Intern(...employeeInfo, answers.school));
+      break;
+  }
 }
+
+console.log(staff);
 
 getInfo();
