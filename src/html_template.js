@@ -72,20 +72,10 @@ const generateIntern = (intern) => {
     </div>
   </header>
   <main>
-    <div class="card text-white bg-primary" style="max-width: 18rem;">
-      <div class="card-header">
-        <h3>Jared</h3>
-        <h4><i class="bi bi-cup-fill"></i>Manager</h4>
-      </div>
-        <ul class="list-group list-group-flush text-body">
-          <li class="list-group-item">ID: </li>
-          <li class="list-group-item">Email: </li>
-          <li class="list-group-item">Github: </li>
-        </ul> 
-    </div>
+
   </main>  
 </body>
 </html>`
 
 
-module.exports = { generateManager, generateEngineer, generateIntern}
+module.exports = { generateManager, generateEngineer, generateIntern }
