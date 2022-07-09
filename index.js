@@ -69,7 +69,13 @@ const getInfo = () => {
   })
 }
 
-const staff = [];
+const staff = {
+  manager: [],
+  engineer: [],
+  intern: []
+};
+
+
 
 function pushInfo(answers) {
   const employeeInfo = [answers.user, answers.id, answers.email];
@@ -77,13 +83,13 @@ function pushInfo(answers) {
 
   switch(answers.role) {
     case 'Manager':
-      staff.push(new Manager(answers.role, ...employeeInfo, answers.office));
+      staff.manager.push(new Manager(...employeeInfo, answers.office));
       break;
     case 'Engineer':
-      staff.push(new Engineer(...employeeInfo, answers.github));
+      staff.engineer.push(new Engineer(...employeeInfo, answers.github));
       break;
     case 'Intern':
-      staff.push(new Intern(...employeeInfo, answers.school));
+      staff.intern.push(new Intern(...employeeInfo, answers.school));
       break;
   }
 
@@ -91,11 +97,15 @@ function pushInfo(answers) {
 }
 
 function pushStaff(answers) {
-  // console.log(answers);
+  // console.log(answers.manager);
+  // console.log(answers[0]);
   // console.log(answers['Manager']);
   // console.log(answers.Manager.id);
   // const found = answers.find(select => select === 'Manager');
   // console.log(found);
+  generateManager(answers.manager);
+  generateEngineer(answers.engineer);
+  generateIntern(answers.intern);
 } 
 
 getInfo();
