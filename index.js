@@ -6,6 +6,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const { generateManager, generateEngineer, generateIntern } = require('./src/html_template');
+
 const getInfo = () => {
   return inquirer.prompt([
     {
@@ -75,7 +77,7 @@ function pushInfo(answers) {
 
   switch(answers.role) {
     case 'Manager':
-      staff.push(new Manager(...employeeInfo, answers.office));
+      staff.push(new Manager(answers.role, ...employeeInfo, answers.office));
       break;
     case 'Engineer':
       staff.push(new Engineer(...employeeInfo, answers.github));
@@ -89,8 +91,11 @@ function pushInfo(answers) {
 }
 
 function pushStaff(answers) {
-  console.log('yes', answers[0]);
-
+  // console.log(answers);
+  // console.log(answers['Manager']);
+  // console.log(answers.Manager.id);
+  // const found = answers.find(select => select === 'Manager');
+  // console.log(found);
 } 
 
 getInfo();
