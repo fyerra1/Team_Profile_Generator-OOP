@@ -84,8 +84,14 @@ function pushInfo(answers) {
       staff.push(new Intern(...employeeInfo, answers.school));
       break;
   }
+
+  pushStaff(staff);
 }
 
-console.log(staff);
+function pushStaff(answers) {
+  console.log('yes', answers[0]);
+
+} 
 
 getInfo();
+// pushInfo();
