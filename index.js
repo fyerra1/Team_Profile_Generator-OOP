@@ -6,7 +6,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const { generateManager, generateEngineer, generateIntern } = require('./src/html_template');
+// const { generateManager, generateEngineer, generateIntern } = require('./src/html_template');
+const generateHtml = require('./src/html_template');
 
 const getInfo = () => {
   return inquirer.prompt([
@@ -52,8 +53,6 @@ const getInfo = () => {
   ])
 
   .then(answers => {
-    // console.log(answers);
-    // console.log(answers.role);
     pushInfo(answers);
     return inquirer.prompt([
       {
@@ -69,11 +68,13 @@ const getInfo = () => {
   })
 }
 
-const staff = {
-  manager: [],
-  engineer: [],
-  intern: []
-};
+// const staff = {
+//   manager: [],
+//   engineer: [],
+//   intern: []
+// };
+
+const staff = [];
 
 
 
@@ -83,30 +84,37 @@ function pushInfo(answers) {
 
   switch(answers.role) {
     case 'Manager':
-      staff.manager.push(new Manager(...employeeInfo, answers.office));
+      staff.push(new Manager(...employeeInfo, answers.office));
       break;
     case 'Engineer':
-      staff.engineer.push(new Engineer(...employeeInfo, answers.github));
+      staff.push(new Engineer(...employeeInfo, answers.github));
       break;
     case 'Intern':
-      staff.intern.push(new Intern(...employeeInfo, answers.school));
+      staff.push(new Intern(...employeeInfo, answers.school));
       break;
   }
 
   pushStaff(staff);
 }
 
+
+
 function pushStaff(answers) {
-  // console.log(answers.manager);
-  // console.log(answers[0]);
-  // console.log(answers['Manager']);
-  // console.log(answers.Manager.id);
-  // const found = answers.find(select => select === 'Manager');
-  // console.log(found);
-  generateManager(answers.manager);
-  generateEngineer(answers.engineer);
-  generateIntern(answers.intern);
+
+const team = generateHtml(answers);
+writeToFile(team);
+   
 } 
 
 getInfo();
-// pushInfo();
+
+
+function writeToFile(content) {
+  fs.writeFile( "./dist/index.html", content, (error) => {
+      if (error) {
+        throw error;
+      } else {
+        console.log('File created!');
+      }
+    })
+}

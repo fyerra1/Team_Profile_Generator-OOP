@@ -1,58 +1,72 @@
-const generateManager = (manager) => {
-  if (manager) {
-    return 
-    `<div class="card text-white bg-primary" style="max-width: 18rem;">
-    <div class="card-header">
-      <h3>Jared</h3>
-      <h4><i class="bi bi-cup-fill"></i>${manager.name}</h4>
-    </div>
-      <ul class="list-group list-group-flush text-body">
-        <li class="list-group-item">ID: ${manager.id}</li>
-        <li class="list-group-item">Email: ${manager.email}</li>
-        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
-      </ul> 
-  </div>`
-  }
-};
+  const generateTeam = (team) => {
 
-const generateEngineer = (engineer) => {
-  if (engineer) {
-    return
-    `<div class="card text-white bg-primary" style="max-width: 18rem;">
-    <div class="card-header">
-      <h3>Jared</h3>
-      <h4><i class="bi bi-sunglasses"></i>${engineer.name}</h4>
-    </div>
-      <ul class="list-group list-group-flush text-body">
-        <li class="list-group-item">ID: ${engineer.id}</li>
-        <li class="list-group-item">Email: ${engineer.email}</li>
-        <li class="list-group-item">Github: ${engineer.github}</li>
-      </ul> 
-  </div>`
-  }
-};
+   const generateManager = (managers) => {
 
-const generateIntern = (intern) => {
-  if (intern) {
-    return
-    `<div class="card text-white bg-primary" style="max-width: 18rem;">
-    <div class="card-header">
-      <h3>Jared</h3>
-      <h4><i class="bi bi-sunglasses"></i>${intern.name}</h4>
-    </div>
-      <ul class="list-group list-group-flush text-body">
-        <li class="list-group-item">ID: ${intern.id}</li>
-        <li class="list-group-item">Email: ${intern.email}</li>
-        <li class="list-group-item">Github: ${intern.school}</li>
-      </ul> 
-  </div>`
-  }
-};
+        return 
+        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        <div class="card-header">
+          <h3>${managers.getName()}</h3>
+          <h4><i class="bi bi-cup-fill"></i>${managers.getRole()}</h4>
+        </div>
+          <ul class="list-group list-group-flush text-body">
+            <li class="list-group-item">ID: ${managers.getId()}</li>
+            <li class="list-group-item">Email: ${managers.getEmail()}</li>
+            <li class="list-group-item">Office Number: ${managers.getOfficeNumber()}</li>
+          </ul> 
+      </div>`
+      
+    };
+
+    const generateEngineer = (engineer) => {
+    
+        return
+        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        <div class="card-header">
+          <h3>${engineer.getName()}</h3>
+          <h4><i class="bi bi-sunglasses"></i>${engineer.getRole()}</h4>
+        </div>
+          <ul class="list-group list-group-flush text-body">
+            <li class="list-group-item">ID: ${engineer.getId()}</li>
+            <li class="list-group-item">Email: ${engineer.getEmail()}</li>
+            <li class="list-group-item">Github: ${engineer.getGithub()}</li>
+          </ul> 
+      </div>`
+      
+    };
+
+    const generateIntern = (intern) => {
+
+        return
+        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        <div class="card-header">
+          <h3>${intern.getName()}</h3>
+          <h4><i class="bi bi-sunglasses"></i>${intern.getRole()}</h4>
+        </div>
+          <ul class="list-group list-group-flush text-body">
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email: ${intern.getEmail()}</li>
+            <li class="list-group-item">Github: ${intern.getSchool()}</li>
+          </ul> 
+      </div>`
+      
+    };
+
+    team.filter( (employee) => employee.getRole() == 'Manager')
+    .map((manager) => generateManager(manager))
+
+    team.filter( (employee) => employee.getRole() == 'Engineer')
+    .map((engineer) => generateManager(engineer))
+    
+    team.filter( (employee) => employee.getRole() == 'Intern')
+    .map((intern) => generateManager(intern))
+   
+  };
 
 
 
+const generateHtml = (team) => {
 
-
+  return
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,10 +86,10 @@ const generateIntern = (intern) => {
     </div>
   </header>
   <main>
-
+    ${generateTeam(team)}
   </main>  
 </body>
 </html>`
+}
 
-
-module.exports = { generateManager, generateEngineer, generateIntern }
+module.exports = generateHtml;
