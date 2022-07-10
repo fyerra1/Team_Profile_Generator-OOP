@@ -102,8 +102,10 @@ function pushInfo(answers) {
 function pushStaff(answers) {
 
 const team = generateHtml(answers);
-writeToFile(team);
-   
+// writeToFile(team);
+
+console.log(team);
+ 
 } 
 
 getInfo();
@@ -117,4 +119,6 @@ function writeToFile(content) {
         console.log('File created!');
       }
     })
+
+    console.log(content);
 }

@@ -1,5 +1,6 @@
   const generateTeam = (team) => {
 
+    
    const generateManager = (managers) => {
 
         return 
@@ -13,7 +14,7 @@
             <li class="list-group-item">Email: ${managers.getEmail()}</li>
             <li class="list-group-item">Office Number: ${managers.getOfficeNumber()}</li>
           </ul> 
-      </div>`
+      </div> ${console.log('manager')}`
       
     };
 
@@ -30,7 +31,7 @@
             <li class="list-group-item">Email: ${engineer.getEmail()}</li>
             <li class="list-group-item">Github: ${engineer.getGithub()}</li>
           </ul> 
-      </div>`
+      </div> ${console.log('engineer')}`
       
     };
 
@@ -47,7 +48,7 @@
             <li class="list-group-item">Email: ${intern.getEmail()}</li>
             <li class="list-group-item">Github: ${intern.getSchool()}</li>
           </ul> 
-      </div>`
+      </div> ${console.log('intnern')}`
       
     };
 
@@ -59,6 +60,9 @@
     
     team.filter( (employee) => employee.getRole() == 'Intern')
     .map((intern) => generateManager(intern))
+
+    return console.log('yes');
+
    
   };
 
