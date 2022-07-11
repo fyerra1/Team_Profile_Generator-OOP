@@ -94,29 +94,39 @@ function pushInfo(answers) {
       break;
   }
 
-  pushStaff(staff);
+  // pushStaff(staff);
 }
 
 
+const pushStaff = () => {
+  console.log('this staff', staff)
+  const team = generateHtml(staff);
+  // writeToFile(team);
+  console.log('this team', team)
+  return team
+}
 
-function pushStaff(answers) {
+// function pushStaff() {
 
-const team = generateHtml(answers);
-writeToFile(team);
-
-console.log('team', team);
+// const team = generateHtml(answers);
+// // writeToFile(team);
+// console.log(staff);
+// console.log('team', team);
  
-} 
+// } 
 
-getInfo();
+getInfo()
+  // .then(() => fs.writeFileSync('./dist/team-profile.html', generateHtml()))
+  .then(() => fs.writeFileSync('./dist/team-profile.html', pushStaff()))
+  // .then(() => )
 
 
-function writeToFile(content) {
-  fs.writeFile( "./dist/index.html", content, (error) => {
-      if (error) {
-        throw error;
-      } else {
-        console.log('File created!');
-      }
-    })
-}
+// function writeToFile(content) {
+//   fs.writeFile( "./dist/index.html", content, (error) => {
+//       if (error) {
+//         throw error;
+//       } else {
+//         console.log('File created!');
+//       }
+//     })
+// }
