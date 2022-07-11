@@ -5,8 +5,7 @@
    const generateManager = (managers) => {
     console.log('generate managers', managers);
     console.log('getname function', managers.getName());
-        return 
-        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${managers.getName()}</h3>
           <h4><i class="bi bi-cup-fill"></i>${managers.getRole()}</h4>
@@ -22,8 +21,7 @@
 
     const generateEngineer = (engineer) => {
       console.log('engineer', engineer);
-        return
-        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${engineer.getName()}</h3>
           <h4><i class="bi bi-sunglasses"></i>${engineer.getRole()}</h4>
@@ -39,8 +37,7 @@
 
     const generateIntern = (intern) => {
       console.log('intern', intern);
-        return
-        `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${intern.getName()}</h3>
           <h4><i class="bi bi-sunglasses"></i>${intern.getRole()}</h4>
@@ -54,18 +51,24 @@
       
     };
 
-    // cards = [];
+    cards = [];
 
-
+    cards.push(
     team.filter( (employee) => employee.getRole() == 'Manager')
     .map((manager) => generateManager(manager))
-
+    .join(''));
+    
+    cards.push(
     team.filter( (employee) => employee.getRole() == 'Engineer')
-    .map((engineer) => generateManager(engineer))
+    .map((engineer) => generateEngineer(engineer))
+    .join(''));
 
+    cards.push(
     team.filter( (employee) => employee.getRole() == 'Intern')
-    .map((intern) => generateManager(intern))
+    .map((intern) => generateIntern(intern))
+    .join(''))
    
+    return cards.join('');
    
   };
 
@@ -75,9 +78,7 @@ module.exports = (team) => {
   console.log("team: ", team );
   // generateTeam(team);
 
-return
-
-`<!DOCTYPE html>
+return `<!DOCTYPE html>
  <html lang="en">
  <head>
    <meta charset="UTF-8">

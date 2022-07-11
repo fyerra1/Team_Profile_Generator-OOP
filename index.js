@@ -102,9 +102,9 @@ function pushInfo(answers) {
 function pushStaff(answers) {
 
 const team = generateHtml(answers);
-// writeToFile(team);
+writeToFile(team);
 
-// console.log('team', team);
+console.log('team', team);
  
 } 
 
