@@ -2,13 +2,13 @@
   
   ## Description
 
-  This command-line application will render staff information such as Name, Employee ID, and Role.
+  This command-line application will render staff information like as Name, Employee ID, Email and Role.
 
   ## Video Recording
   [WALK-THROUGH VIDEO](https://drive.google.com/drive/folders/1eBZAD336dVGj7XKMfhvl_BHAKF--iBR-?usp=sharing)
 
   ## Screenshots
-  ![]()
+  ![](./assets/screenshot.png)
 
   ## Table of Contents
   #### [Installation](#installation)
