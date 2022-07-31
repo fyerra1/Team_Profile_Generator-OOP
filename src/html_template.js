@@ -5,10 +5,10 @@
    const generateManager = (managers) => {
     console.log('generate managers', managers);
     console.log('getname function', managers.getName());
-        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="m-4 card text-white bg-primary align-items-center" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${managers.getName()}</h3>
-          <h4><i class="bi bi-cup-fill"></i>${managers.getRole()}</h4>
+          <h4><i class="bi bi-cup-fill "></i> ${managers.getRole()}</h4>
         </div>
           <ul class="list-group list-group-flush text-body">
             <li class="list-group-item">ID: ${managers.getId()}</li>
@@ -21,10 +21,10 @@
 
     const generateEngineer = (engineer) => {
       console.log('engineer', engineer);
-        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="m-4 card text-white bg-primary align-items-center" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${engineer.getName()}</h3>
-          <h4><i class="bi bi-sunglasses"></i>${engineer.getRole()}</h4>
+          <h4><i class="bi bi-laptop "></i> ${engineer.getRole()}</h4>
         </div>
           <ul class="list-group list-group-flush text-body">
             <li class="list-group-item">ID: ${engineer.getId()}</li>
@@ -37,15 +37,15 @@
 
     const generateIntern = (intern) => {
       console.log('intern', intern);
-        return `<div class="card text-white bg-primary" style="max-width: 18rem;">
+        return `<div class="m-4 card text-white bg-primary align-items-center" style="max-width: 18rem;">
         <div class="card-header">
           <h3>${intern.getName()}</h3>
-          <h4><i class="bi bi-sunglasses"></i>${intern.getRole()}</h4>
+          <h4><i class="bi bi-mortarboard-fill"></i> ${intern.getRole()}</h4>
         </div>
           <ul class="list-group list-group-flush text-body">
             <li class="list-group-item">ID: ${intern.getId()}</li>
             <li class="list-group-item">Email: ${intern.getEmail()}</li>
-            <li class="list-group-item">Github: ${intern.getSchool()}</li>
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
           </ul> 
       </div>`
       
@@ -97,7 +97,9 @@ return `<!DOCTYPE html>
      </div>
    </header>
    <main>
+    <div class="align-items-center justify-content-center row">
      ${generateTeam(team)}
+    <div>
    </main>  
  </body>
  </html>`
