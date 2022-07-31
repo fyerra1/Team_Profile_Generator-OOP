@@ -6,7 +6,6 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-// const { generateManager, generateEngineer, generateIntern } = require('./src/html_template');
 const generateHtml = require('./src/html_template');
 
 const getInfo = () => {
@@ -68,19 +67,11 @@ const getInfo = () => {
   })
 }
 
-// const staff = {
-//   manager: [],
-//   engineer: [],
-//   intern: []
-// };
 
 const staff = [];
 
-
-
 function pushInfo(answers) {
   const employeeInfo = [answers.user, answers.id, answers.email];
-  // console.log(...employeeInfo);
 
   switch(answers.role) {
     case 'Manager':
@@ -94,39 +85,15 @@ function pushInfo(answers) {
       break;
   }
 
-  // pushStaff(staff);
 }
 
 
 const pushStaff = () => {
-  console.log('this staff', staff)
   const team = generateHtml(staff);
-  // writeToFile(team);
-  console.log('this team', team)
   return team
 }
 
-// function pushStaff() {
 
-// const team = generateHtml(answers);
-// // writeToFile(team);
-// console.log(staff);
-// console.log('team', team);
- 
-// } 
 
 getInfo()
-  // .then(() => fs.writeFileSync('./dist/team-profile.html', generateHtml()))
   .then(() => fs.writeFileSync('./dist/team-profile.html', pushStaff()))
-  // .then(() => )
-
-
-// function writeToFile(content) {
-//   fs.writeFile( "./dist/index.html", content, (error) => {
-//       if (error) {
-//         throw error;
-//       } else {
-//         console.log('File created!');
-//       }
-//     })
-// }
